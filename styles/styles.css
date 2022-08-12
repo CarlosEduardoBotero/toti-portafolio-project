@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: sticky;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #131731;
+  color: white;
+  /* From https://css.glass */
+  background: rgba(19, 23, 49, 0.92);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.3px);
+  -webkit-backdrop-filter: blur(6.3px);
+  border: 1px solid rgba(19, 23, 49, 0.22);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+#about-me {
+  background-color: #01051e;
+}
+
+#video {
+  background-color: #040826;
+}
+
+#tecnologies {
+  background-color: #01051e;
+}
+#projects {
+  background-color: #040826;
+}
+#API {
+  background-color: #01051e;
+}
+#contact {
+  background-color: #040826;
+}
+footer {
+  height: 200px;
+  width: 100%;
+  background-color: #01051e;
+}
