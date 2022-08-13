@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Silkscreen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Portafolio</title>
   </head>
   <body>
@@ -15,11 +22,38 @@
         <li><a href="">video</a></li>
         <li><a href="">tecnologias</a></li>
         <li><a href="">projeitos</a></li>
-        <li><a href="">API</a></li>
-        <li><a href="">formulario</a></li>
+        <li><a href="" class="a-btn">API</a></li>
+        <li><a href="" class="a-btn a-outlined">formulario</a></li>
       </ul>
     </nav>
-    <section id="about-me"></section>
+    <section id="about-me">
+      <div class="about-me-text-container flex center">
+        <h1 class="my-name">Carlos <span class="accent-text">Botero</span></h1>
+        <figure class="flex center carlos-photo-BKP-sm">
+          <img src="/images/foto para linkdin.jpeg" />
+        </figure>
+        <p>
+          Olá a todos, sou desenvolvedor
+          <span class="accent-text">front-end</span>, apaixonado por
+          criptomoedas, finanças e resolução de problemas. Aprendi a programar
+          inteiramente através de recursos e informações da internet como
+          youtube, udemy e
+          <span
+            ><a
+              href="https://developer.mozilla.org/"
+              target="_blank"
+              class="mdn-a"
+              >mdn</a
+            ></span
+          >. Também participei em 2 bootcamps que impulsionaram minha carreira
+          como programador
+        </p>
+        <button class="btn-contained">descobrir</button>
+      </div>
+      <figure class="flex center carlos-photo-BKP-lg">
+        <img src="/images/foto para linkdin.jpeg" />
+      </figure>
+    </section>
     <section id="video"></section>
     <section id="tecnologies"></section>
     <section id="projects"></section>

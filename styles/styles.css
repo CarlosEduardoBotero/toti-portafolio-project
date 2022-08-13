@@ -16,6 +16,7 @@
   --color-primary-dark: #01051e;
   --color-primary-light: #040826;
   --color-accent: #00ff38;
+  --breakpoint-md: 970px;
 }
 
 .flex {
@@ -105,13 +106,14 @@ button:active,
   color: white;
 }
 
-.navbar a {
+a {
   text-decoration: none;
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  padding: clamp(12px, 3%, 40px);
 }
 
 #about-me,
@@ -130,16 +132,41 @@ footer {
 #about-me {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 100px;
   align-content: center;
-  padding: clamp(12px, 3%, 40px);
-  padding-top: var(--navbar-height);
+  padding-top: calc(var(--navbar-height) + clamp(12px, 3%, 40px));
 }
 
 #about-me img {
   height: 400px;
   width: 400px;
   border-radius: 50%;
+}
+
+.about-me-text-container {
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about-me-text-container h1 {
+  font-size: 40px;
+}
+
+.about-me-text-container p {
+  line-height: 35px;
+}
+
+.about-me-text-container h1 {
+  align-self: flex-start;
+}
+
+.about-me-text-container button {
+  align-self: flex-end;
+}
+
+.mdn-a {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 #video {
@@ -161,4 +188,28 @@ footer {
 footer {
   height: 200px;
   width: 100%;
+}
+
+@media screen and (max-width: 970px) {
+  #about-me {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .navbar h2 {
+    display: none;
+  }
+
+  .about-me-text-container h1 {
+    align-self: center;
+  }
+
+  .carlos-photo-BKP-lg {
+    display: none;
+  }
+}
+@media screen and (min-width: 970px) {
+  .carlos-photo-BKP-sm {
+    display: none;
+  }
 }
