@@ -23,13 +23,41 @@
   display: flex;
 }
 
-.center {
+.flex-center {
   justify-content: center;
   align-items: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.flex-gap-30 {
+  gap: 30px;
+}
+.flex-gap-20 {
+  gap: 20px;
+}
+
 .accent-text {
   color: var(--color-accent);
+}
+
+.a-styled {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 button,
@@ -110,10 +138,15 @@ a {
   text-decoration: none;
 }
 
+p {
+  line-height: 35px;
+}
+
 section {
-  min-height: 100vh;
+  min-height: max-content;
   width: 100%;
   padding: clamp(12px, 3%, 40px);
+  border-bottom: 1px solid #12132e;
 }
 
 #about-me,
@@ -130,10 +163,11 @@ footer {
 }
 
 #about-me {
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 100px;
-  align-content: center;
+  place-items: center;
   padding-top: calc(var(--navbar-height) + clamp(12px, 3%, 40px));
 }
 
@@ -141,36 +175,45 @@ footer {
   height: 400px;
   width: 400px;
   border-radius: 50%;
+  max-width: 100%;
+  height: auto;
 }
 
-.about-me-text-container {
-  flex-direction: column;
-  gap: 30px;
-}
-
-.about-me-text-container h1 {
+.my-name {
   font-size: 40px;
+  color: white;
 }
 
-.about-me-text-container p {
-  line-height: 35px;
+#video h1 {
+  font-size: 30px;
+  color: white;
 }
 
-.about-me-text-container h1 {
-  align-self: flex-start;
+.my-hystory-text {
+  width: 70ch;
 }
 
-.about-me-text-container button {
-  align-self: flex-end;
+.logos-container {
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.mdn-a {
-  color: var(--color-accent);
-  text-decoration: underline;
+.bootcamp-card {
+  background-color: var(--color-primary-dark);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
 }
 
-#video {
-  /* background-color: #040826; */
+.bootcamp-card p {
+  line-height: 25px;
+  font-size: 12px;
+}
+
+.hackademy-logo,
+.toti-logo {
+  height: 200px;
+  width: 200px;
 }
 
 #tecnologies {
@@ -190,7 +233,7 @@ footer {
   width: 100%;
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 969px) {
   #about-me {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -207,7 +250,24 @@ footer {
   .carlos-photo-BKP-lg {
     display: none;
   }
+
+  .logos-container {
+    gap: 30px;
+  }
+
+  .logos-container {
+    align-self: unset;
+  }
+
+  #video p {
+    width: auto;
+  }
+
+  .my-name {
+    font-size: 30px;
+  }
 }
+
 @media screen and (min-width: 970px) {
   .carlos-photo-BKP-sm {
     display: none;

@@ -27,10 +27,17 @@
       </ul>
     </nav>
     <section id="about-me">
-      <div class="about-me-text-container flex center">
-        <h1 class="my-name">Carlos <span class="accent-text">Botero</span></h1>
-        <figure class="flex center carlos-photo-BKP-sm">
-          <img src="/images/foto para linkdin.jpeg" />
+      <div
+        class="about-me-text-container flex flex-center flex-column flex-gap-30"
+      >
+        <h1 class="my-name align-self-start">
+          Carlos <span class="accent-text">Botero</span>
+        </h1>
+        <figure class="flex flex-center carlos-photo-BKP-sm">
+          <img
+            src="/images/foto para linkdin.jpeg"
+            alt="carlos eduardo botero viloria photo"
+          />
         </figure>
         <p>
           Olá a todos, sou desenvolvedor
@@ -42,19 +49,79 @@
             ><a
               href="https://developer.mozilla.org/"
               target="_blank"
-              class="mdn-a"
+              class="a-styled"
               >mdn</a
             ></span
           >. Também participei em 2 bootcamps que impulsionaram minha carreira
           como programador
         </p>
-        <button class="btn-contained">descobrir</button>
+        <button class="btn-contained align-self-end">descobrir</button>
       </div>
-      <figure class="flex center carlos-photo-BKP-lg">
-        <img src="/images/foto para linkdin.jpeg" />
+      <figure class="flex flex-center carlos-photo-BKP-lg">
+        <img
+          src="/images/foto para linkdin.jpeg"
+          alt="carlos eduardo botero vilora photo"
+        />
       </figure>
     </section>
-    <section id="video"></section>
+    <section id="video" class="flex flex-column flex-gap-30">
+      <h1 class="align-self-center">minha história</h1>
+      <p class="my-hystory-text align-self-center">
+        Em 2021 comecei a programar pela primeira vez, comecei a assistir
+        tutoriais no youtube depois comprei cursos de javascript e react na
+        udemy e simultaneamente iniciei meu primeiro bootcamp no
+        <span class="accent-text">hackademy</span> onde ele me deu o básico para
+        desenvolver uma aplicação em react. Em 2022 consegui meu primeiro
+        emprego, ainda estou aprendendo e comecei meu segundo bootcamp com o
+        grande time da <span class="accent-text">toti</span>.
+      </p>
+      <div class="logos-container flex">
+        <div class="bootcamp-card flex flex-column flex-center flex-gap-20">
+          <figure>
+            <a href="https://hackademy.lat/" target="_blank">
+              <img
+                src="/images/Logo_de_hackademy-removebg.png"
+                alt="hackademy logo"
+                class="hackademy-logo"
+            /></a>
+          </figure>
+          <p>
+            Na Hackademy sabemos que o talento pode ser encontrado em qualquer
+            lugar e em qualquer circunstância, por isso criamos um bootcamp
+            intensivo para desenvolver os melhores talentos sem o atrito de
+            fronteiras.
+          </p>
+          <a
+            href="https://hackademy.lat/"
+            target="_blank"
+            class="a-btn align-self-end"
+            >conhocer</a
+          >
+        </div>
+        <div class="bootcamp-card flex flex-column flex-center flex-gap-20">
+          <figure>
+            <a href="https://totidiversidade.com.br/" target="_blank">
+              <img
+                src="/images/icon_logo_toti.svg"
+                alt="toti diversidade logo"
+                class="toti-logo"
+            /></a>
+          </figure>
+          <p>
+            Toti é a primeira plataforma brasileira de ensino e inclusão de
+            pessoas refugiadas e migrantes no mercado de trabalho de tecnologia.
+            Nosso propósito é inspirar a mudança conectando educação, tecnologia
+            e diversidade.
+          </p>
+          <a
+            href="https://totidiversidade.com.br/"
+            target="_blank"
+            class="a-btn align-self-end"
+            >conhocer</a
+          >
+        </div>
+      </div>
+    </section>
     <section id="tecnologies"></section>
     <section id="projects"></section>
     <section id="API"></section>
