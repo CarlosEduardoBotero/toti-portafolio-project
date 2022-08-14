@@ -19,6 +19,26 @@
   --breakpoint-md: 970px;
 }
 
+h1 {
+  color: white;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: 35px;
+}
+
+section {
+  min-height: max-content;
+  width: 100%;
+  padding: clamp(12px, 3%, 40px);
+  border-bottom: 1px solid #12132e;
+}
+
 .flex {
   display: flex;
 }
@@ -134,21 +154,6 @@ button:active,
   color: white;
 }
 
-a {
-  text-decoration: none;
-}
-
-p {
-  line-height: 35px;
-}
-
-section {
-  min-height: max-content;
-  width: 100%;
-  padding: clamp(12px, 3%, 40px);
-  border-bottom: 1px solid #12132e;
-}
-
 #about-me,
 #tecnologies,
 #API,
@@ -181,12 +186,6 @@ footer {
 
 .my-name {
   font-size: 40px;
-  color: white;
-}
-
-#video h1 {
-  font-size: 30px;
-  color: white;
 }
 
 .my-hystory-text {
@@ -219,6 +218,40 @@ footer {
 #tecnologies {
   /* background-color: #01051e; */
 }
+
+.tecnologies-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
+  grid-auto-flow: dense; */
+  gap: 20px;
+}
+
+.tecnologies-container > div {
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+  border-radius: 10px;
+  padding: 30px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.tecnologies-container > div:hover {
+  background-color: #00ff371f;
+}
+
+.main-tecnologies {
+  grid-column: span 2;
+}
+
+/* .tecnologies-container div:nth-child(4),
+.tecnologies-container div:nth-child(11) {
+  grid-column: span 3;
+} */
+
 #projects {
   /* background-color: #040826; */
 }
