@@ -9,17 +9,56 @@ const emailInputError = document.getElementById("email-input-error");
 const nameInputError = document.getElementById("name-input-error");
 const messageTextareaError = document.getElementById("message-textarea-error");
 const contactForm = document.getElementById("contact-form");
+const textBitcoinPrice = document.getElementById("bitcoin-price");
+const textEthereumPrice = document.getElementById("ethereum-price");
+const textUniswapPrice = document.getElementById("uniswap-price");
+const skeletonLoadingPrice = document.querySelectorAll(".skeleton-loading");
 
-const getCrytoData = async () => {
-  try {
-    const data = await fetch(
-      "https://api2.binance.com/api/v3/avgPrice?symbol=BTCUSDT"
-    );
-    const response = await data.json();
-    console.log(response);
-  } catch (error) {}
+const USDCurrencyFormatter = (value) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 2,
+  }).format(value);
 };
-// getCrytoData();
+
+const getBitcoin = () => {
+  return fetch("https://api2.binance.com/api/v3/avgPrice?symbol=BTCUSDT");
+};
+const getEthereum = () => {
+  return fetch("https://api2.binance.com/api/v3/avgPrice?symbol=ETHUSDT");
+};
+const getUniswap = () => {
+  return fetch("https://api2.binance.com/api/v3/avgPrice?symbol=UNIUSDT");
+};
+
+const getData = async () => {
+  try {
+    const response = await Promise.all([
+      getBitcoin(),
+      getEthereum(),
+      getUniswap(),
+    ]);
+    const [bitcoinData, ethereumData, uniswapData] = await Promise.all(
+      response.map((res) => res.json())
+    );
+    textBitcoinPrice.innerText = USDCurrencyFormatter(bitcoinData.price);
+    textEthereumPrice.innerText = USDCurrencyFormatter(ethereumData.price);
+    textUniswapPrice.innerText = USDCurrencyFormatter(uniswapData.price);
+  } catch (error) {
+    console.log(error);
+    console.log("ha ocurrido un error en el promise");
+    textBitcoinPrice.innerText = "ocorreu um erro";
+    textEthereumPrice.innerText = "ocorreu um erro";
+    textUniswapPrice.innerText = "ocorreu um erro";
+    textBitcoinPrice.classList.add("error-text");
+    textEthereumPrice.classList.add("error-text");
+    textUniswapPrice.classList.add("error-text");
+  } finally {
+    skeletonLoadingPrice.forEach((skeleton) => skeleton.remove());
+  }
+};
+getData();
 
 const handleBlur = (e) => {
   const { value, name } = e.target;
@@ -82,7 +121,7 @@ const handleInput = (e) => {
       e.target.style.outline = "1px solid red";
     }
   }
-  console.log(messageTextareaRegex.test(value));
+
   if (name === "message") {
     if (messageTextareaRegex.test(value)) {
       e.target.style.outline = "1px solid var(--color-accent)";
@@ -96,7 +135,7 @@ const handleInput = (e) => {
 const handleSubmit = (e) => {
   e.preventDefault();
   console.log(e.target.value);
-  // alert("obrigado por me contactar");
+  alert("obrigado por me contactar");
   contactForm.reset();
 };
 
