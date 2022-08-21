@@ -13,6 +13,7 @@ const textBitcoinPrice = document.getElementById("bitcoin-price");
 const textEthereumPrice = document.getElementById("ethereum-price");
 const textUniswapPrice = document.getElementById("uniswap-price");
 const skeletonLoadingPrice = document.querySelectorAll(".skeleton-loading");
+const apiSection = document.getElementById("API");
 
 const USDCurrencyFormatter = (value) => {
   return new Intl.NumberFormat("en-US", {
@@ -32,7 +33,10 @@ const getUniswap = () => {
   return fetch("https://api2.binance.com/api/v3/avgPrice?symbol=UNIUSDT");
 };
 
+let isMakingApiCall = false;
+
 const getData = async () => {
+  isMakingApiCall = true;
   try {
     const response = await Promise.all([
       getBitcoin(),
@@ -46,8 +50,6 @@ const getData = async () => {
     textEthereumPrice.innerText = USDCurrencyFormatter(ethereumData.price);
     textUniswapPrice.innerText = USDCurrencyFormatter(uniswapData.price);
   } catch (error) {
-    console.log(error);
-    console.log("ha ocurrido un error en el promise");
     textBitcoinPrice.innerText = "ocorreu um erro";
     textEthereumPrice.innerText = "ocorreu um erro";
     textUniswapPrice.innerText = "ocorreu um erro";
@@ -58,7 +60,17 @@ const getData = async () => {
     skeletonLoadingPrice.forEach((skeleton) => skeleton.remove());
   }
 };
-getData();
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      entry.isIntersecting && !isMakingApiCall && getData();
+    });
+  },
+  { threshold: 0.8 }
+);
+
+observer.observe(apiSection);
 
 const handleBlur = (e) => {
   const { value, name } = e.target;
@@ -134,7 +146,6 @@ const handleInput = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log(e.target.value);
   alert("obrigado por me contactar");
   contactForm.reset();
 };
