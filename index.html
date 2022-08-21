@@ -12,7 +12,6 @@
       rel="stylesheet"
     />
     <script defer src="/scripts/main.js"></script>
-
     <title>Portafolio</title>
   </head>
   <body>
@@ -162,7 +161,7 @@
     <section id="projects">
       <div class="flex flex-column flex-gap-30 container-lg">
         <h1 class="align-self-center">Projeitos</h1>
-        <p></p>
+        <p class="align-self-center">Projetos em que trabalhei</p>
         <div class="flex flex-column flex-gap-30">
           <div class="flex flex-gap-30 project-card">
             <div class="flex flex-column flex-gap-30">
@@ -214,38 +213,77 @@
       </div>
     </section>
     <section id="API">
-      <div class="container-lg flex flex-column flex-gap-30">
-        <h1>Precio da Criptomoedas</h1>
+      <div class="container-lg crypto-container flex flex-column flex-gap-30">
+        <h1 class="align-self-center">Precio da Criptomoedas</h1>
         <div class="projects-grid">
-          <div><p>Bitcoin</p></div>
-          <div><p>Ethereum</p></div>
-          <div><p>Uniswap</p></div>
+          <div class="flex flex-space-between">
+            <p>Bitcoin</p>
+            <p id="bitcoin-price">
+              <span class="skeleton-loading"></span>
+            </p>
+          </div>
+          <div class="flex flex-space-between">
+            <p>Ethereum</p>
+            <p id="ethereum-price"><span class="skeleton-loading"></span></p>
+          </div>
+          <div class="flex flex-column flex-space-between">
+            <p class="align-self-center">Uniswap</p>
+            <p class="align-self-center" id="uniswap-price">
+              <span class="skeleton-loading"></span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
     <section id="contact">
-      <div class="container-lg">
-        <h1>Contact me</h1>
-        <form
-          class="flex flex-column flex-gap-20 form-container"
-          id="contact-form"
-        >
+      <div class="container-lg form-container flex flex-column flex-gap-30">
+        <h1 class="align-self-center">Contact me</h1>
+        <form class="flex flex-column flex-gap-20" id="contact-form">
           <label for="name" aria-placeholder="Nome">Nome</label>
-          <input type="text" placeholder="Nome" required />
+          <input
+            name="name"
+            id="name-input"
+            type="text"
+            placeholder="Nome"
+            required
+          />
+          <p
+            class="hide-error-text error-text align-self-start"
+            id="name-input-error"
+          ></p>
           <label for="email">Email</label>
-          <input type="email" placeholder="Email" required />
+          <input
+            name="email"
+            id="email-input"
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <p
+            class="hide-error-text error-text align-self-start"
+            id="email-input-error"
+          ></p>
           <label for="mensagem">mensagem</label>
           <textarea
-            name="text area"
-            id=""
+            name="message"
+            id="message-textarea"
             cols="30"
             rows="10"
             placeholder="Mensagem"
           ></textarea>
+          <p
+            class="hide-error-text error-text align-self-start"
+            id="message-textarea-error"
+          ></p>
           <button class="btn-contained align-self-end">Enviar</button>
         </form>
       </div>
     </section>
-    <footer></footer>
+    <footer>
+      <div class="container-lg footer-container flex flex-column flex-center">
+        <div>redes sociaes</div>
+        <p>Feito por Carlos Eduardo Botero Viloria &copy; 2022</p>
+      </div>
+    </footer>
   </body>
 </html>
