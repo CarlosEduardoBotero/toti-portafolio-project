@@ -43,6 +43,10 @@ section {
   border-bottom: 1px solid #12132e;
 }
 
+ul {
+  list-style: none;
+}
+
 .flex {
   display: flex;
 }
@@ -157,9 +161,131 @@ button:active,
 
 .navbar ul {
   display: flex;
-  list-style: none;
   gap: 15px;
   color: white;
+}
+
+.nav-modal-mobile {
+  padding: 10px;
+}
+
+#drawerBtn {
+  display: block;
+  padding: 3px 0;
+  line-height: 1.75;
+  padding-left: 40px;
+}
+
+#drawerBtn:hover {
+  background-color: #2a2d3d;
+  border-radius: 4px;
+}
+
+.nav-modal-mobile-container {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+}
+.nav-modal-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--color-primary-dark);
+  transform: translateX(0);
+  /* transition: transform 250ms ease; */
+}
+.nav-modal-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 1;
+}
+
+.hamburger-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 15px;
+  border: 3px solid #bebebe;
+  position: relative;
+  display: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 250ms ease;
+}
+
+.fadeOut {
+  animation: fadeOut 250ms ease;
+}
+
+@keyframes drawerLeftIn {
+  from {
+    transform: translateX(-240px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes drawerLeftOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-240px);
+  }
+}
+
+.drawerLeftIn {
+  animation: drawerLeftIn 250ms ease;
+}
+
+.drawerLeftOut {
+  animation: drawerLeftOut 250ms ease;
+}
+
+.hamburger-btn::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  left: 7.2px;
+  top: 11px;
+  background-color: #bebebe;
+  border-radius: 4px;
+}
+
+.hamburger-btn::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  left: 7.2px;
+  top: 21px;
+  background-color: #bebebe;
+  border-radius: 4px;
 }
 
 .container-lg {
@@ -435,7 +561,7 @@ footer {
   }
 
   .my-name {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .projects-grid {
@@ -462,6 +588,20 @@ footer {
 
   footer {
     height: 150px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .navbar {
+    justify-content: initial;
+    padding-left: 20px;
+  }
+  .navbar ul {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
   }
 }
 
