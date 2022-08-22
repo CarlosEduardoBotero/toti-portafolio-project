@@ -1,7 +1,3 @@
-// https://api2.binance.com/api/v3/avgPrice?symbol=ETHUSDT
-// https://api2.binance.com/api/v3/avgPrice?symbol=ETHUSDT
-// https://api2.binance.com/api/v3/ticker/24hr?symbols=['BTCUSDT','ETHUSDT','UNIUSDT']
-
 const nameInput = document.getElementById("name-input");
 const emailInput = document.getElementById("email-input");
 const messageTextarea = document.getElementById("message-textarea");
@@ -14,6 +10,38 @@ const textEthereumPrice = document.getElementById("ethereum-price");
 const textUniswapPrice = document.getElementById("uniswap-price");
 const skeletonLoadingPrice = document.querySelectorAll(".skeleton-loading");
 const apiSection = document.getElementById("API");
+const navModalMobileContainer = document.querySelector(
+  ".nav-modal-mobile-container"
+);
+const navModalMobile = document.querySelector(".nav-modal-mobile");
+const navModalMobileBackdrop = document.querySelector(
+  ".nav-modal-mobile-backdrop"
+);
+const hamburgerBtn = document.querySelector(".hamburger-btn");
+const fadeOutBtn = document.querySelector(".fadeOutBtn");
+const drawerBtn = document.querySelectorAll("#drawerBtn");
+
+const handleClickBackdrop = () => {
+  document.body.removeAttribute("style");
+  navModalMobile.classList.add("drawerLeftOut");
+  navModalMobileBackdrop.classList.add("fadeOut");
+  setTimeout(() => {
+    navModalMobile.classList.remove("drawerLeftOut");
+    navModalMobileBackdrop.classList.remove("fadeOut");
+    navModalMobileContainer.style.visibility = "hidden";
+  }, 250);
+};
+
+const handleClickHamburguerBtn = () => {
+  document.body.style.overflow = "hidden";
+  navModalMobileContainer.style.visibility = "visible";
+  navModalMobile.classList.add("drawerLeftIn");
+  navModalMobileBackdrop.classList.add("fadeIn");
+  setTimeout(() => {
+    navModalMobile.classList.remove("drawerLeftIn");
+    navModalMobileBackdrop.classList.remove("fadeIn");
+  }, 1000);
+};
 
 const USDCurrencyFormatter = (value) => {
   return new Intl.NumberFormat("en-US", {
@@ -157,3 +185,8 @@ nameInput.addEventListener("input", handleInput);
 emailInput.addEventListener("input", handleInput);
 messageTextarea.addEventListener("input", handleInput);
 contactForm.addEventListener("submit", handleSubmit);
+navModalMobileBackdrop.addEventListener("click", handleClickBackdrop);
+drawerBtn.forEach((button) =>
+  button.addEventListener("click", handleClickBackdrop)
+);
+hamburgerBtn.addEventListener("click", handleClickHamburguerBtn);
